@@ -62,5 +62,90 @@ Question 2a)
 
 \end{tikzpicture}
 
+\newpage
+Question 5
+\newline
+\begin{tikzpicture}[shorten >=1pt,scale=0.6, node distance=2cm, on grid, auto]
+    \node[state, initial]   (0) {$0$};
+    \node[state]            (10) [below= of 0] {$10$};
+    \node[state]            (20) [below= of 10] {$20$};
+    \node[state]            (25) [below= of 20] {$25$};
+    \node[state]            (30) [below= of 25] {$30$};
+    \node[state]            (35) [below= of 30] {$35$};
+    \node[state]            (40) [below= of 35] {$40$};
+    \node[state]            (45) [below= of 40] {$45$};
+    \node[state]            (50) [below= of 45] {$50$};
+    \node[state]            (55) [below= of 50] {$55$};
+    \node[state]            (60) [right= of 55] {$60$};
+    \node[state]            (65) [right= of 60] {$65$};
+    \node[state]            (70) [right= of 65] {$70$};
+    \node[state]            (75) [right= of 70] {$75$};
+    \node[state]            (80) [right= of 75] {$80$};
+    \node[state]            (85) [right= of 80] {$85$};
+    \node[state]            (90) [right= of 85] {$90$};
+    \node[state]            (95) [above= of 90] {$95$};
+    \node[state, accepting] (100)[above= of 95] {$100$};
+        \path[->]
+        (0)   edge node {10} (10)
+              edge node {100}(100)
+              edge [bend right] node {25}(25)
+        (10)  edge [bend left] node {10} (20)
+              edge [bend right] node {25} (35)
+              edge node {100}(100)
+        (20)  edge [bend left] node {10} (30)
+              edge [bend right] node {25} (45)
+              edge node {100}(100)
+        (25)  edge [bend left] node {10} (35)
+              edge [bend right] node {25} (50)
+              edge node {100}(100)
+        (30)  edge [bend left] node {10} (40)
+              edge [bend right] node {25} (55)
+              edge node {100}(100)
+        (35)  edge [bend left] node {10} (45)
+              edge [bend right] node {25} (60)
+              edge node {100}(100)
+        (40)  edge [bend left] node {10} (50)
+              edge [bend right] node {25} (65)
+              edge node {100}(100)
+        (45)  edge [bend left] node {10} (55)
+              edge [bend right] node {25} (70)
+              edge node {100}(100)
+        (50)  edge [bend left] node {10} (60)
+              edge [bend right] node {25} (75)
+              edge node {100}(100)
+        (55)  edge [bend left] node {10} (65)
+              edge [bend right] node {25} (80)
+              edge node {100}(100)
+        (60)  edge [bend left] node {10} (70)
+              edge [bend right] node {25} (85)
+              edge node {100}(100)
+        (65)  edge [bend left] node {10} (75)
+              edge [bend right] node {25} (90)
+              edge node {100}(100)
+        (70)  edge [bend left] node {10} (80)
+              edge [bend right] node {25} (95)
+              edge node {100}(100)
+        (75)  edge [bend left] node {10} (85)
+              edge [bend right] node {25} (100)
+              edge node {100}(100)
+        (80)  edge [bend left] node {10} (90)
+              edge [bend right] node {25} (100)
+              edge node {100}(100)
+        (85)  edge [bend left] node {10} (95)
+              edge [bend right] node {25} (100)
+              edge node {100}(100)
+              edge node {100}(100)
+        (90)  edge [bend left] node {10} (100)
+              edge [bend right] node {25} (100)
+              edge [bend left] node {100}(100)
+        (95)  edge [bend left] node {10} (100)
+              edge [bend right] node {25} (100)
+              edge [bend right] node {100}(100);
+\newline
+\newline
+\newline
+\newline
+\end{tikzpicture}
+
 \end{document}
 
