@@ -24,8 +24,9 @@ Question 1a)
 \vspace{2cm}
 
 Question 1b)
-\vspace{1cm}
 \newline
+\newline
+\vspace{2cm}
 \begin{tikzpicture}[shorten >=1pt, node distance=2cm, on grid, auto]
     \node[state, initial, accepting] (q_0) {$q_0$};
     \node[state, accepting] (q_1) [right=of q_0] {$q_1$};
@@ -41,9 +42,9 @@ Question 1b)
 
 \vspace{2cm}
 
+\newpage
 Question 2a)
 \vspace{1cm}
-\newline
 
 \begin{tikzpicture}[shorten >=1pt, node distance=2cm, on grid, auto]
     \node[state, initial] (q_0) {$q_0$};
@@ -61,6 +62,69 @@ Question 2a)
         (q_4)   edge node {1} (q_5);
 
 \end{tikzpicture}
+
+\vspace{2cm}
+Question 2b)
+\vspace{1cm}
+
+\begin{tikzpicture}[shorten >=1pt, node distance=2cm, on grid, auto]
+    \node[state, initial] (q_0) {$q_0$};
+    \node[state] (q_1) [right= of q_0] {$q_1$};
+    \node[state] (q_2) [right= of q_1] {$q_2$};
+    \node[state] (q_3) [right= of q_2] {$q_3$};
+    \node[state] (q_4) [right= of q_3] {$q_4$};
+    \node[state] (q_5) [right= of q_4] {$q_5$};
+    \node[state] (q_6) [right= of q_5] {$q_6$};
+    \node[state, accepting] (q_7) [right= of q_6] {$q_7$};
+        \path[->]
+        (q_0)   edge node {1} (q_1)
+        (q_1)   edge node {0} (q_2)
+        (q_2)   edge node {1} (q_3)
+        (q_3)   edge [loop above] node {1,0} () 
+                edge node {$\epsilon$} (q_4)
+        (q_4)   edge node {1} (q_5)
+        (q_5)   edge node {0} (q_6)
+        (q_6)   edge node {1} (q_7);
+
+\end{tikzpicture}
+
+\vspace{2cm}
+Question 2c)
+\vspace{1cm}
+
+\begin{tikzpicture}[shorten >=1pt, node distance=2cm, on grid, auto]
+    \node[state, initial] (q_0) {$q_0$};
+    \node[state] (q_1) [right= of q_0] {$q_1$};
+    \node[state] (q_2) [right= of q_1] {$q_2$};
+    \node[state] (q_3) [right= of q_2] {$q_3$};
+    \node[state, accepting] (q_4) [right= of q_3] {$q_4$};
+        \path[->]
+        (q_0)   edge node {$\epsilon$} (q_1)
+        (q_1)   edge [loop above] node {a,b} ()
+                edge node {a} (q_2)
+        (q_2)   edge node {b} (q_3)
+        (q_3)   edge node {a} (q_4);
+
+\end{tikzpicture}
+
+\newpage
+Question 3)
+
+\vspace{0.5cm}
+M = ($\{q1,q2,q3\}$,$\{0,1\}$,$\delta$,q1,$\{q1,q2\}$)
+
+where $\delta$ is 
+
+\begin{center}
+    \begin{tabular}{| l | l | l |}
+    \hline
+       & 0  & 1  \\ \hline
+    q1 & q2 & q1 \\ \hline
+    q2 & q2 & q3 \\ \hline
+    q3 & q3 & q3 \\
+    \hline
+    \end{tabular}
+\end{center}
 
 \newpage
 Question 5

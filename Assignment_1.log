@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2019.6.5)  19 OCT 2019 15:30
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2019.6.5)  19 OCT 2019 18:20
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -460,43 +460,48 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <5> on input line 14.
 
-Underfull \hbox (badness 10000) in paragraph at lines 44--47
+Underfull \hbox (badness 10000) in paragraph at lines 26--42
 
- []
-
-
-Overfull \hbox (20.84903pt too wide) in paragraph at lines 63--64
-[][] 
  []
 
 [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-Overfull \hbox (135.75pt too wide) in paragraph at lines 66--149
+Overfull \hbox (20.84903pt too wide) in paragraph at lines 64--65
+[][] 
+ []
+
+
+Overfull \hbox (134.66003pt too wide) in paragraph at lines 89--90
+[][] 
+ []
+
+[2] [3]
+Overfull \hbox (135.75pt too wide) in paragraph at lines 130--213
 [] 
  []
 
-[2]
+[4]
 Overfull \vbox (32.92471pt too high) has occurred while \output is active []
 
 
-[3] (./Assignment_1.aux) ) 
+[5] (./Assignment_1.aux) ) 
 Here is how much of TeX's memory you used:
- 12744 strings out of 493029
- 272524 string characters out of 6136235
- 338841 words of memory out of 5000000
- 16075 multiletter control sequences out of 15000+600000
+ 12756 strings out of 493029
+ 272680 string characters out of 6136235
+ 339058 words of memory out of 5000000
+ 16087 multiletter control sequences out of 15000+600000
  3640 words of font info for 14 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  55i,9n,68p,439b,798s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/ams
 fonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
 cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7
-.pfb>
-Output written on Assignment_1.pdf (3 pages, 39753 bytes).
+.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
+Output written on Assignment_1.pdf (5 pages, 51628 bytes).
 PDF statistics:
- 29 PDF objects out of 1000 (max. 8388607)
- 20 compressed objects within 1 object stream
+ 39 PDF objects out of 1000 (max. 8388607)
+ 27 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 
