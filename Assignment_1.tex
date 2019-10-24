@@ -426,4 +426,100 @@ Question 6)
 
 \end{tikzpicture}
 
+\newpage
+Question 7)
+$L_1 - L_2 = L_1 \cap \overline{L_2}$
+
+Since $L_1$ is regular, $\overline{L_2}$ (complement of $L_2$) is regular and intersection are all closed under the set of regular languages then $L_1 \cap \overline{L_2}$ is regular.
+
+
+\vspace{8cm}
+Question 8)
+We assume that ADD is regular.
+
+Let p be the puming length given by the pumping lemma
+
+we let s be the string
+
+$1^p = 0 + 1^p$
+
+Because $s \in B \land s > p$ we guarentee that $s$ can be split into three piece $s = xyz$
+\newline
+where these three things must hold 
+\newline
+i) $xy^iz \in ADD    ,i>=0
+\newline
+ii) |xy| <= p
+\newline
+iii) |y| > 0$
+
+
+Suppose y contains only 1's
+
+let $y = 1^m$ such that $m >= 1$
+
+$
+xy = 1^p\newline
+x = 1^{p-m}\newline
+z = ( = 0 + 1^p)
+$
+\newline
+$
+xyz     (1^{p-m})(1^m)(= 0 + 1^p)
+$
+\newline
+suppose $i = 0$
+\newline
+$
+xy^iz = (1^{p-m}(1^m)^0( = 0 + 1^p)
+\newline
+      = 1^{p-m} = 0 + 1^p
+$
+\newline
+if $m>=1, p-m \neq p$
+
+Hence $\exists i$ such that $xy^iz \notin ADD$
+
+
+\newpage
+Question 9)
+
+a)\newline
+Accept:\newline
+a\newline
+b
+
+Reject:\newline
+ba\newline
+bbaa
+
+
+b)\newline
+Accept:\newline
+a\newline 
+aba\newline  
+
+Reject:\newline
+b\newline 
+ba\newline 
+
+
+c)\newline
+Accept:\newline
+a\newline 
+bb  
+
+Reject:\newline
+aa\newline  
+aab\newline  
+
+
+d)\newline
+Accept:\newline
+$\epsilon$b\newline 
+ab 
+
+Reject:\newline
+aab\newline
+bb
 \end{document}
