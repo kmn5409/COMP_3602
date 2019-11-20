@@ -16,25 +16,38 @@ grammar = Grammar(
 
 grammar = Grammar(
     r"""
-    program     = "HAI" nlc code_block nlc "KTHXBAI"
-    code_block  = statement / (statement nlc code_block)
-    statement   = comment / expression
-    comment     = ("BTW" string) / ("OBTW" string "TLDR")
-    expression = atom
-    atom        = "WIN" / "FAIL" / "NOOB" / (numbers "." numbers) / (numbers) / string
-    numbers     = ~"[0-9]*"i
-    string      = ~"[a-zA-Z0-9]*"i 
-    nlc         = "\n" / ~","
+    program      = "HAI" nlc code_block nlc "KTHXBAI"
+    code_block   = statement / (statement nlc code_block)
+    statement    = loop / declaration / comment / print_block / expression
+    loop         = "IM IN YR" label "WILE" expression nlc code_block nlc "IM OUTTA YR" label
+    declaration  = ("I HAS A" label) / ("I HAS A" label "ITZ" label)
+    comment      = ("BTW" string) / ("OBTW" string "TLDR")
+    print_block  = ("VISIBLE" expression "MKAY?") / (expression expression)
+    if_block     = ("O RLY?" nlc "YA RLY" nlc code_block nlc "OIC") / ("O RLY?" nlc "YA RLY" nlc code_block nlc else_if_block nlc "OIC")
+    else_if_block= ("MEBBE" expression nlc code_block nlc else_if_block) / ("NO WAI" nlc code_block) / ("MEBBE" expression nlc code_block)
+    input_block  = "GIMME" label
+    assignment   = label "R" expression
+    expression   = equals / both / not_equals / atom
+    equals       = "BOTH SAEM" expression "AN" expression
+    not_equals   = "DIFFRINT" expression "AN" expression
+    both         = "BOTH OF" expression "AN" expression
+    label        = ~"[a-zA-Z0-9]*"i
+    atom         = "WIN" / "FAIL" / "NOOB" / (numbers "." numbers) / (numbers) / (string / quoted)
+    quoted       = ~'"[^\"]+"' 
+    numbers      = ~"[0-9]*"i
+    string       = ~"[a-zA-Z0-9]*"i 
+    nlc          = "\n" / ~","
     """
     )
 
-print(grammar.parse('''HAI,90,KTHXBAI'''))
+print(grammar.parse('''HAI,WIN,KTHXBAI'''))
 #Problem with normal string for atom
 
 '''
 Testing:
 Comments: HAI,BTW HELLO,KTHXBAI 
-Dot in between: HAI,5.7,KTHXBAI
+Dot in between: HAI,90.74,KTHXBAI
+Problem with atom and ("<string>")
 '''
 
 
