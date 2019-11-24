@@ -46,17 +46,19 @@ grammar = Grammar(
     not          = "NOT " expression
 
     label        = ~"[a-zA-Z0-9]*"i
-    atom         = "WIN" / "FAIL" / "NOOB" / (numbers "." numbers) / (numbers) / (string / quoted)
-    quoted       = ~'"[^\"]+"' 
+    atom         = (numbers "." numbers) / (quotes* string quotes*) / "WIN" / "FAIL" / "NOOB" / (numbers)
+    quoted       = ~'"[^\"]*"' 
+    quotes       = "\""
     numbers      = ~"[0-9]*"i
-    string       = ~"[a-zA-Z0-9 ']*"
+    string       = ~"[a-zA-Z0-9 ]*"
+    space        = " "
     nlc          = "\n" / ~","
     """
     )
 
-print(grammar.parse('''HAI
-VISIBLE WIN MKAY?
-KTHXBAI'''))
+print(grammar.parse("""HAI
+4
+KTHXBAI"""))
 #Problem with normal string for atom
 
 '''
