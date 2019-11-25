@@ -17,8 +17,8 @@ grammar = Grammar(
 grammar = Grammar(
     r"""
     program      = "HAI" nlc code_block nlc "KTHXBAI"
-    code_block   = statement / (statement nlc code_block)
-    statement    = loop / declaration / comment / print_block / expression
+    code_block   = (statement) / (statement nlc code_block)
+    statement    = comment / print_block / expression
     loop         = "IM IN YR " label "WILE " expression nlc code_block nlc "IM OUTTA YR " label
     declaration  = ("I HAS A " label) / ("I HAS A " label "ITZ " label)
     comment      = ("BTW " string) / ("OBTW " string " TLDR")
@@ -27,12 +27,12 @@ grammar = Grammar(
                    ("O RLY? " nlc " YA RLY" nlc code_block nlc else_if_block nlc " OIC")
     else_if_block= ("MEBBE " expression nlc code_block nlc else_if_block) / 
                    ("NO WAI " nlc code_block) / ("MEBBE " expression nlc code_block)
-    input_block  = "GIMME " label
+    input_block  = "GIMMEH " label
     assignment   = label " R " expression
     expression   = equals / both / not_equals / either / greater / less / 
                    add / sub / mul / div / mod / not / atom
 
-    equals       = "BOTH SAEM " expression " AN" expression
+    equals       = "BOTH SAEM " expression " AN " expression
     not_equals   = "DIFFRINT " expression "AN " expression
     both         = "BOTH OF " expression "AN " expression
     either       = "EITHER OF " expression "AN " expression
@@ -52,13 +52,19 @@ grammar = Grammar(
     numbers      = ~"[0-9]*"i
     string       = ~"[a-zA-Z0-9 ]*"
     space        = " "
-    nlc          = "\n" / ~","
+    nlc          = ~"\n*" / ~","
     """
     )
 
-print(grammar.parse("""HAI
-4
-KTHXBAI"""))
+f = open("greet_part.lols", "r")
+contents = f.read()
+print(contents)
+print(len(contents))
+contents = contents[:len(contents)-1]
+print(contents)
+print(len(contents))
+
+print(grammar.parse(contents))
 #Problem with normal string for atom
 
 '''
