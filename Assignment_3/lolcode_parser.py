@@ -17,22 +17,22 @@ grammar = Grammar(
 grammar = Grammar(
     r"""
     program      = "HAI" nlc code_block nlc "KTHXBAI"
-    code_block   = (statement) / (statement nlc code_block)
-    statement    = comment / print_block / expression
-    loop         = "IM IN YR " label "WILE " expression nlc code_block nlc "IM OUTTA YR " label
-    declaration  = ("I HAS A " label) / ("I HAS A " label "ITZ " label)
-    comment      = ("BTW " string) / ("OBTW " string " TLDR")
-    print_block  = ("VISIBLE " expression+ " MKAY?")
-    if_block     = ("O RLY? " nlc " YA RLY" nlc code_block nlc " OIC") / 
+    code_block   = (statement nlc )+ / (statement)
+    statement    = comment / declaration / input_block / expression / print_block
+    loop         = "IM IN YR" ws  label "WILE" ws expression nlc code_block nlc "IM OUTTA YR" ws label
+    declaration  = ("I HAS A" ws label) / ("I HAS A" ws label "ITZ " label)
+    comment      = ("BTW" ws string) / ("OBTW" ws string ws "TLDR")
+    print_block  = ("VISIBLE" ws expression+ ws "MKAY?")
+    if_block     = ("O RLY?" ws nlc ws "YA RLY" nlc code_block nlc " OIC") / 
                    ("O RLY? " nlc " YA RLY" nlc code_block nlc else_if_block nlc " OIC")
     else_if_block= ("MEBBE " expression nlc code_block nlc else_if_block) / 
                    ("NO WAI " nlc code_block) / ("MEBBE " expression nlc code_block)
-    input_block  = "GIMMEH " label
+    input_block  = "GIMMEH" ws label
     assignment   = label " R " expression
-    expression   = equals / both / not_equals / either / greater / less / 
-                   add / sub / mul / div / mod / not / atom
+    expression   = label / atom / both / not_equals / either / greater / less / 
+                   add / sub / mul / div / mod / not 
 
-    equals       = "BOTH SAEM " expression " AN " expression
+    equals       = "BOTH SAEM" ws expression ws "AN" ws expression
     not_equals   = "DIFFRINT " expression "AN " expression
     both         = "BOTH OF " expression "AN " expression
     either       = "EITHER OF " expression "AN " expression
@@ -45,13 +45,13 @@ grammar = Grammar(
     mod          = "MOD OF " expression "AN " expression
     not          = "NOT " expression
 
-    label        = ~"[a-zA-Z0-9]*"i
-    atom         = (numbers "." numbers) / (quotes* string quotes*) / "WIN" / "FAIL" / "NOOB" / (numbers)
+    label        = ~"[a-zA-Z0-9]*"
+    atom         = (numbers "." numbers) / (quotes string quotes) / "WIN" / "FAIL" / "NOOB" / (numbers)
     quoted       = ~'"[^\"]*"' 
     quotes       = "\""
     numbers      = ~"[0-9]*"i
-    string       = ~"[a-zA-Z0-9 ]*"
-    space        = " "
+    string       = ~"[a-zA-Z0-9 ]*" / (~"[a-zA-Z0-9 ]*" ws )+
+    ws        = ~"\s*"
     nlc          = ~"\n*" / ~","
     """
     )
