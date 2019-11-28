@@ -1,7 +1,0 @@
-program <- "HAI" nlc code_block nlc "KTHXBAI";
-code_block <- (statement nlc code_block) / statement  ;
-statement <- comment;
-comment <- "BTW " string ;
-ws <- "\s";
-string <- r"[a-zA-Z0-9]"*;
-nlc <- "\n"* / ","*;
