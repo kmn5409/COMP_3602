@@ -130,6 +130,7 @@ def main():
     fp = open(args.input, 'r')
     content = fp.read()
     content = content.rstrip()
+    print('Hello world')
     fp.close()
     #print(content)
     #content = '"pokemon are"'
