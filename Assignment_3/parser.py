@@ -19,7 +19,7 @@ def code_block():
     return [ZeroOrMore((statement, newlines)), statement, newlines]
 
 def statement():
-    return [declaration, comment, input_block, assignment, expression]
+    return [declaration, comment, input_block, assignment, print_block, expression]
 
 def declaration():
     return [(simple_declaration, decl_assignment), simple_declaration]
@@ -37,7 +37,7 @@ def comment1():
     return _(r'BTW'), ZeroOrMore(string_body)
 
 def print_block():
-    return "VISIBLE", OneOrMore(expression),"MKAY",_(r"[?]") 
+    return "VISIBLE",expression, "MKAY?"
 
 def input_block():
     return "GIMMEH", label
